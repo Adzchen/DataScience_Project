@@ -1,0 +1,156 @@
+---
+title: "Course_2_Weekly_Quiz_2"
+author: "Zhenzhuo A. C."
+date:   28.03.22
+output:
+  html_document:
+    df_print: paged
+---
+
+#### Question 1: Suppose I define the following function in R
+
+```{r}
+cube <- function(x, n) {
+        x^3
+}
+```
+
+What is the result of running?
+
+```{r}
+cube(3) # 3^3=27
+```
+
+#### Question 2: The following code will produce a warning in R. Why?
+
+```{r}
+x <- 1:10
+if(x > 5) {
+        x <- 0
+}
+```
+
+A. There are no elements in 'x' that are greater than 5
+
+B. You cannot set 'x' to be 0 because 'x' is a vector and 0 is a scalar.
+
+C. The syntax of this R expression is incorrect.
+
+D. The expression uses curly braces.
+
+E. 'x' is a vector of length 10 and 'if' can only test a single logical statement.
+
+-   **Answer**: E. 'x' is a vector of length 10 and 'if' can only test a single logical statement.
+
+#### Question 3:
+
+```{r}
+f <- function(a) {
+       g<- function(b) {
+              b+c
+        }
+        c <- 4
+        a + g(a)
+}
+```
+
+If I then run in R
+
+```{r}
+f(3)
+```
+
+-   **Answer**: The result is 10.
+
+**What we know from the first sight**:\
+g = function (b) = b+c\
+c = 4\
+f = function(a) = a + g(a)
+
+**when a = 3**:\
+f(3) = 3 + g(3) = 3+(3+4) = 10
+
+#### Question 4: Consider the following expression:
+
+```{r}
+x <- 5
+y <- if(x < 3) {
+        NA
+} else {
+        10
+}
+y
+```
+
+What is the value of 'y' after evaluating this expression?\
+- **Answer**: 10
+
+**What we know from the first sight**:\
+x = 5 y = NA (when x\<3) y = 10 (when x \>=3)
+
+#### Question 5: Which symbol in the above function is a free variable?
+
+```{r}
+h <- function(x, y = NULL, d = 3L) {
+        z <- cbind(x, d)
+        if(!is.null(y))
+                z <- z + y
+        else
+                z <- z + f
+        g <- x + y / z
+        if(d == 3L)
+                return(g)
+        g <- g + 10
+        g
+}
+```
+
+-   **Answer**: f
+
+#### Question 7: The R language uses what type of scoping rule for resolving free variables?
+
+A. dynamic scoping
+
+B. lexical scoping
+
+C. compilation scoping
+
+D. global scoping
+
+-   **Answer**: B. lexical/static scoping - 定义表达式并能被访问的区间
+
+#### Question 8: How are free variables in R functions resolved?
+
+A. The values of free variables are searched for in the global environment
+
+B. The values of free variables are searched for in the environment in which the function was defined
+
+C. The values of free variables are searched for in the working directory
+
+D. The values of free variables are searched for in the environment in which the function was called
+
+-   **Answer**: B. The values of free variables are searched for in the environment in which the function was defined.
+
+#### Question 9: What is one of the consequences of the scoping rules used in R?
+
+A. All objects must be stored in memory
+
+B. All objects can be stored on the disk
+
+C. R objects cannot be larger than 100 MB
+
+D. Functions cannot be nested
+
+-   **Answer**: A. All objects must be stored in memory
+
+#### Question 10: In R, what is the parent frame?
+
+A. It is the package search list
+
+B. It is always the global environment
+
+C. It is the environment in which a function was defined
+
+D. It is the environment in which a function was called
+
+-   **Answer**: D. It is the environment in which a function was called.
